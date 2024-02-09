@@ -1,0 +1,29 @@
+{% extends "Pokemons/basePokemon.html.twig"%}
+{% block content %}
+        <div class="row">
+          <div class="col text-center">
+            <h2> {{ pokemon.nombre}} Nº{{pokemon.codigo}} </h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <img src="{{pokemon.image}}" />
+          </div>
+          <div class="col">
+            <div class="row">
+              <div class="col">{{pokemon.description}}</div>
+            </div>
+            <div class="row">
+              <ul>
+              {#}hacemos un bucle para poder recorer todas todas las debilidades  #}
+                {% for debilidad in pokemon.debilidades %}
+              {#}cuando imprimimos la debilidad hay que tener cuidado ya que se imprimira como objeto asi que le especificamos cual es el valor dentro del objeto que
+              queremos imprimir  #}
+                <li>{{debilidad.nombre}}</li>
+              {#}importante cierro el buble  #}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+{% endblock %}
